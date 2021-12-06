@@ -10,7 +10,7 @@ class Question extends Model
 {
     use HasFactory;
 
-    public function users(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(User::class);
     }
@@ -19,5 +19,13 @@ class Question extends Model
     {
         $this->attributes['title'] = $value;
         $this->attributes['slug'] = Str::slug($value, '-');
+    }
+
+    public function getURLAttribute(){
+        return route("question.show",$this->id);
+    }
+
+    public function getCreatedDateAttribute(){
+        return $this->created_at->diffForHumans();
     }
 }
