@@ -232,7 +232,7 @@ sup {
 
 a {
   color: #0d6efd;
-  text-decoration: none;
+  text-decoration: underline;
 }
 a:hover {
   color: #0a58ca;
@@ -11285,4 +11285,41 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important;
   }
+}
+a {
+  text-decoration: none;
+}
+
+.counters {
+  background: #fff;
+  padding: 1rem;
+}
+
+.vote, .status, .view {
+  width: 5rem;
+  height: 4rem;
+  margin-bottom: 16px;
+  text-align: center;
+}
+.vote strong, .status strong, .view strong {
+  font-size: 1.5rem;
+  display: block;
+}
+
+.vote {
+  color: green;
+}
+
+.status {
+  color: #fd7e14;
+}
+.status.unanswered {
+  border: none;
+}
+.status.answered {
+  border: 1px solid #fd7e14;
+}
+.status.answer-accepted {
+  background: #fd7e14;
+  color: #fff;
 }

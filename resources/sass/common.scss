@@ -1,0 +1,40 @@
+a {
+    text-decoration: none;
+}
+
+.counters{
+    background: #fff;
+    padding: 1rem;
+}
+
+.vote,.status,.view {
+    width: 5rem;
+    height: 4rem;
+    margin-bottom: 16px;
+    text-align: center;
+    strong {
+        font-size: 1.5rem;
+        display: block;
+    }
+}
+
+.vote {
+    color: green;
+}
+.status {
+    color: #fd7e14;
+    &.unanswered {
+        border:none;
+    }
+
+    &.answered{
+        border: 1px solid #fd7e14;
+    }
+
+    &.answer-accepted{
+        background: #fd7e14;
+        color: #fff;
+    }
+
+}
+
