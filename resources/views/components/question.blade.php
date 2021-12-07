@@ -11,9 +11,14 @@
         </div>
     </div>
     <div class="card w-100">
-        <h3 class="card-header">
-            <a href="{{ $question->url ?? '' }}">{{ $question->title ?? '' }}</a>
-        </h3>
+        <div class="card-header d-flex justify-content-between">
+            <h3>
+                <a href="{{ $question->url ?? '' }}">{{ $question->title ?? '' }}</a>
+            </h3>
+            <div>
+                <a href="{{ route('question.edit',$question->id) }}" class="btn btn-sm btn-outline-secondary">Edit</a>
+            </div>
+        </div>
         <div class="card-body">
             <p class="lead">
                 Ask by <a href="{{ $question->user->url ?? '' }}">{{ $question->user->name ?? '' }}</a>
