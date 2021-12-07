@@ -47,7 +47,13 @@ class User extends Authenticatable
         return $this->hasMany(Question::class);
     }
 
-    public function getURLAttribute(){
+    public function answers(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Answer::class);
+    }
+
+    public function getURLAttribute(): string
+    {
         return '#';
     }
 

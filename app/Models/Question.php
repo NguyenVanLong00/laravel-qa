@@ -20,6 +20,11 @@ class Question extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function answers(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Answer::class);
+    }
+
     public function setTitleAttribute($value)
     {
         $this->attributes['title'] = $value;
@@ -39,7 +44,7 @@ class Question extends Model
     const UNANSWERED = 'unanswered';
 
     public function getStatusAttribute(){
-        if ($this->answers > 0){
+        if ($this->answers_count > 0){
             if (isset($this->best_answer_id)){
                 return self::ANSWER_ACCEPTED;
             }
