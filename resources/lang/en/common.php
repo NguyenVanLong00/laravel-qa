@@ -1,7 +1,0 @@
-<?php
-
-return [
-
-    'questions' => 'Questions'
-
-];

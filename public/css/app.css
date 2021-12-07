@@ -11298,7 +11298,9 @@ a {
 .vote, .status, .view {
   width: 5rem;
   height: 4rem;
-  margin-bottom: 16px;
+  border-radius: 4px;
+  margin-top: 8px;
+  margin-bottom: 8px;
   text-align: center;
 }
 .vote strong, .status strong, .view strong {

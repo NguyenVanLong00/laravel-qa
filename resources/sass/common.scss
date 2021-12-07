@@ -10,7 +10,9 @@ a {
 .vote,.status,.view {
     width: 5rem;
     height: 4rem;
-    margin-bottom: 16px;
+    border-radius: 4px;
+    margin-top: 8px;
+    margin-bottom: 8px;
     text-align: center;
     strong {
         font-size: 1.5rem;
