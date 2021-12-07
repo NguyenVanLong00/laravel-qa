@@ -4,10 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AskQuestionRequest;
 use App\Models\Question;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
 
 class QuestionController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth')->except('index','show');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -29,6 +37,8 @@ class QuestionController extends Controller
      */
     public function create()
     {
+
+
         $question = new Question();
 
         return view('questions.create',compact('question'));
@@ -42,6 +52,8 @@ class QuestionController extends Controller
      */
     public function store(AskQuestionRequest $request)
     {
+        $this->authorize('create');
+
         $request->user()->questions()->create($request->only('title','body'));
 
         return redirect()->route('question.index')->with('success','your question have been submitted.');
@@ -68,6 +80,8 @@ class QuestionController extends Controller
      */
     public function edit(Question $question)
     {
+        $this->authorize('update',$question);
+
         return view('questions.edit',compact('question'));
     }
 
@@ -80,6 +94,8 @@ class QuestionController extends Controller
      */
     public function update(AskQuestionRequest $request, Question $question)
     {
+        $this->authorize('update',$question);
+
         $question->update($request->only('title','body'));
 
         return redirect()->route('question.index')->with('success','question have been updated');
@@ -93,6 +109,8 @@ class QuestionController extends Controller
      */
     public function destroy(Question $question)
     {
+        $this->authorize('delete',$question);
+
         $question->delete();
 
         return redirect()->route('question.index')->with('success','question delete successfully');

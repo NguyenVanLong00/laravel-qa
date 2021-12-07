@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\Question;
+use App\Models\User;
+use Illuminate\Auth\Access\Gate;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 

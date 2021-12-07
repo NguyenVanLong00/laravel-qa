@@ -6,7 +6,9 @@
             <div class="col-md-8">
                 <div class="d-flex justify-content-between">
                     <h2 class="header">{{ __('question.questions') }}</h2>
+                    @auth
                     <a href="{{ route('question.create') }}" class="btn btn-outline-primary fs-5">{{ __('question.create') }}</a>
+                    @endauth
                 </div>
                     @include('layouts._messages')
 
