@@ -10,7 +10,7 @@
             <strong>{{ $question->views ?? 0 }}</strong> {{ str_plural('view',$question->views) }}
         </div>
     </div>
-    <div class="card">
+    <div class="card w-100">
         <h3 class="card-header">
             <a href="{{ $question->url ?? '' }}">{{ $question->title ?? '' }}</a>
         </h3>
