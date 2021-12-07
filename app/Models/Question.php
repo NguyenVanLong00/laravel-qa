@@ -27,7 +27,7 @@ class Question extends Model
     }
 
     public function getURLAttribute(){
-        return route("question.show",$this->id);
+        return route("question.show",$this->slug);
     }
 
     public function getCreatedDateAttribute(){
@@ -47,4 +47,5 @@ class Question extends Model
         }
         return self::UNANSWERED;
     }
+
 }

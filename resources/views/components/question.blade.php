@@ -15,8 +15,13 @@
             <h3>
                 <a href="{{ $question->url ?? '' }}">{{ $question->title ?? '' }}</a>
             </h3>
-            <div>
+            <div class="w-25 text-end">
                 <a href="{{ route('question.edit',$question->id) }}" class="btn btn-sm btn-outline-secondary">Edit</a>
+                <form action="{{ route('question.destroy',$question->id) }}" method="post" class="d-inline">
+                    @method('DELETE')
+                    @csrf
+                    <button class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure to delete this question?')" >Delete</button>
+                </form>
             </div>
         </div>
         <div class="card-body">
